@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased;
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .touch-btn {
+    @apply min-h-14 rounded-2xl px-4 font-semibold transition active:scale-[0.98];
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid #fb923c;
+    outline-offset: 2px;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #print-root,
+  #print-root * {
+    visibility: visible !important;
+  }
+
+  #print-root {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 80mm !important;
+    margin: 0 !important;
+    padding: 4mm !important;
+    background: white !important;
+    color: black !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+}
